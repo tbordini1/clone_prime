@@ -6,14 +6,14 @@
       "use": "@vercel/static"
     },
     {
-      "src": "css/**",
+      "src": "styles/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/css/(.*)",
-      "dest": "/css/$1"
+      "src": "/styles/(.*)",
+      "dest": "/styles/$1"
     }
   ]
 }
