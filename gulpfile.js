@@ -29,11 +29,9 @@ function comprimeImagens(){
     .pipe(gulp.dest("./build/img")) // para onde mandaremos os arquivos img comprimidos
 }
 
-exports.sass = compilaSass; // ESSE COMANDO É INDIVIDUAL SÓ PARA AMOSTRAGEM
-exports.comprimeJs = comprimeJs; // Exporta a tarefa de compressão de JS
-exports.comprimeImagens = comprimeImagens; // Exporta a tarefa de compressão de imagens
+exports.default = gulp.parallel(compilaSass, comprimeJs, comprimeImagens);
 
-exports.default = function (){
+exports.watch = function (){
   gulp.watch("./src/styles/*.scss", { ignoreInitial: false }, gulp.series(compilaSass));
   gulp.watch("./src/scripts/*.js", { ignoreInitial: false }, gulp.series(comprimeJs));
   gulp.watch("./src/img/*", { ignoreInitial: false }, gulp.series(comprimeImagens));
